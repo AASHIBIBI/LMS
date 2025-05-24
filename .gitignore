@@ -1,0 +1,10 @@
+node_modules/
+.DS_Store
+.env
+tmp/
+log/
+*.log
+public/assets/
+public/packs/
+yarn-error.log
+/public/packs-test/ 
