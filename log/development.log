@@ -37321,3 +37321,836 @@ Processing by HomePageController#index as HTML
 Completed 200 OK in 428ms (Views: 426.0ms | ActiveRecord: 0.0ms | Allocations: 23030)
 
 
+  [1m[35m (488.9ms)[0m  [1m[35mCREATE DATABASE "library_management_system_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (608.7ms)[0m  [1m[35mCREATE DATABASE "library_management_system_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (18.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6857467164149377230)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateStudents (20190928001723)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6857467164149377230)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6857467164149377230)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateStudents (20190928001723)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (24.5ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "email" character varying, "name" character varying, "password" character varying, "education_level" character varying, "university" character varying, "max_book_allowed" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190928001723_create_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928001723"]]
+  ↳ bin/rails:4
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateBooks (20190928002758)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "books" ("id" bigserial primary key, "isbn" character varying, "title" character varying, "authors" character varying, "language" character varying, "published" character varying, "edition" character varying, "cover" character varying, "subject" character varying, "summary" text, "category" character varying, "special_collection" boolean, "library_id" bigint NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_9bb3dacd9b"
+FOREIGN KEY ("library_id")
+  REFERENCES "libraries" ("id")
+)[0m
+  ↳ db/migrate/20190928002758_create_books.rb:3
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6857467164149377230)[0m
+  ↳ bin/rails:4
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2025-05-24 19:06:33.041629"], ["updated_at", "2025-05-24 19:06:33.041629"]]
+  ↳ bin/rails:4
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (1579.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "library_management_system_development"[0m
+  ↳ bin/rails:4
+  [1m[35m (208.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "library_management_system_test"[0m
+  ↳ bin/rails:4
+  [1m[35m (404.1ms)[0m  [1m[35mCREATE DATABASE "library_management_system_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (318.2ms)[0m  [1m[35mCREATE DATABASE "library_management_system_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (21.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6857467164149377230)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateStudents (20190928001723)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "email" character varying, "name" character varying, "password" character varying, "education_level" character varying, "university" character varying, "max_book_allowed" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190928001723_create_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928001723"]]
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateBooks (20190928002758)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "books" ("id" bigserial primary key, "isbn" character varying, "title" character varying, "author" character varying, "language" text, "published" text, "edition" text, "image" text, "subject" text, "summary" text, "special" boolean, "library_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190928002758_create_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928002758"]]
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateAdmins (20190928002857)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "admins" ("id" bigserial primary key, "name" character varying, "email" character varying, "password" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190928002857_create_admins.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928002857"]]
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateLibraries (20190928003221)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE TABLE "libraries" ("id" bigserial primary key, "name" character varying, "university" character varying, "location" character varying, "borrow_limit" integer, "overdue_fines" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190928003221_create_libraries.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928003221"]]
+  ↳ bin/rails:4
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddCountToBooks (20190928053621)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "books" ADD "count" integer[0m
+  ↳ db/migrate/20190928053621_add_count_to_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928053621"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateLibrarians (20190928171134)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "librarians" ("id" bigserial primary key, "name" character varying, "email" character varying, "password" character varying, "library" character varying, "approved" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190928171134_create_librarians.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928171134"]]
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateTransactions (20190928214946)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "transactions" ("id" bigserial primary key, "start" timestamp, "end" timestamp, "student_id" bigint, "book_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190928214946_create_transactions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928214946"]]
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddDeviseToStudents (20190928234858)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "students" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  ↳ db/migrate/20190928234858_add_devise_to_students.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "students" ADD "reset_password_token" character varying[0m
+  ↳ db/migrate/20190928234858_add_devise_to_students.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "students" ADD "reset_password_sent_at" timestamp[0m
+  ↳ db/migrate/20190928234858_add_devise_to_students.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "students" ADD "remember_created_at" timestamp[0m
+  ↳ db/migrate/20190928234858_add_devise_to_students.rb:15
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_students_on_email" ON "students"  ("email")[0m
+  ↳ db/migrate/20190928234858_add_devise_to_students.rb:40
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_students_on_reset_password_token" ON "students"  ("reset_password_token")[0m
+  ↳ db/migrate/20190928234858_add_devise_to_students.rb:41
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928234858"]]
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddDeviseToLibrarians (20190928234941)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "librarians" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  ↳ db/migrate/20190928234941_add_devise_to_librarians.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "librarians" ADD "reset_password_token" character varying[0m
+  ↳ db/migrate/20190928234941_add_devise_to_librarians.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "librarians" ADD "reset_password_sent_at" timestamp[0m
+  ↳ db/migrate/20190928234941_add_devise_to_librarians.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "librarians" ADD "remember_created_at" timestamp[0m
+  ↳ db/migrate/20190928234941_add_devise_to_librarians.rb:15
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_librarians_on_email" ON "librarians"  ("email")[0m
+  ↳ db/migrate/20190928234941_add_devise_to_librarians.rb:40
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_librarians_on_reset_password_token" ON "librarians"  ("reset_password_token")[0m
+  ↳ db/migrate/20190928234941_add_devise_to_librarians.rb:41
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928234941"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddDeviseToAdmins (20190928235010)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "admins" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  ↳ db/migrate/20190928235010_add_devise_to_admins.rb:8
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "admins" ADD "reset_password_token" character varying[0m
+  ↳ db/migrate/20190928235010_add_devise_to_admins.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "admins" ADD "reset_password_sent_at" timestamp[0m
+  ↳ db/migrate/20190928235010_add_devise_to_admins.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "admins" ADD "remember_created_at" timestamp[0m
+  ↳ db/migrate/20190928235010_add_devise_to_admins.rb:15
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admins_on_email" ON "admins"  ("email")[0m
+  ↳ db/migrate/20190928235010_add_devise_to_admins.rb:40
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admins_on_reset_password_token" ON "admins"  ("reset_password_token")[0m
+  ↳ db/migrate/20190928235010_add_devise_to_admins.rb:41
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928235010"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateCheckouts (20191002080301)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "checkouts" ("id" bigserial primary key, "student_id" bigint, "book_id" bigint, "issue_date" date, "return_date" date, "validity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20191002080301_create_checkouts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191002080301"]]
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateHoldRequests (20191002083315)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "hold_requests" ("id" bigserial primary key, "student_id" bigint, "book_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20191002083315_create_hold_requests.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191002083315"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateBookmarks (20191002094949)
+  [1m[35m (12.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "bookmarks" ("id" bigserial primary key, "student_id" bigint, "book_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20191002094949_create_bookmarks.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191002094949"]]
+  ↳ bin/rails:4
+  [1m[35m (35.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddColumnsToStudent (20191006155122)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "students" ADD "google_token" character varying[0m
+  ↳ db/migrate/20191006155122_add_columns_to_student.rb:3
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "students" ADD "google_refresh_token" character varying[0m
+  ↳ db/migrate/20191006155122_add_columns_to_student.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191006155122"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddColumnToStudent (20191009061150)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "students" ADD "provider" character varying[0m
+  ↳ db/migrate/20191009061150_add_column_to_student.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "students" ADD "uid" character varying[0m
+  ↳ db/migrate/20191009061150_add_column_to_student.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191009061150"]]
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateSpecialBooks (20191009093211)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "special_books" ("id" bigserial primary key, "student_id" bigint, "book_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20191009093211_create_special_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191009093211"]]
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to UpdateMigrationDependencies (20250524190404)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (2.9ms)[0m  [1m[35mDROP TABLE "books"[0m
+  ↳ db/migrate/20250524190404_update_migration_dependencies.rb:4
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE "libraries"[0m
+  ↳ db/migrate/20250524190404_update_migration_dependencies.rb:5
+  [1m[35m (2.2ms)[0m  [1m[35mDROP TABLE "students"[0m
+  ↳ db/migrate/20250524190404_update_migration_dependencies.rb:6
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE "admins"[0m
+  ↳ db/migrate/20250524190404_update_migration_dependencies.rb:7
+  [1m[35m (1.5ms)[0m  [1m[35mDROP TABLE "librarians"[0m
+  ↳ db/migrate/20250524190404_update_migration_dependencies.rb:8
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE "transactions"[0m
+  ↳ db/migrate/20250524190404_update_migration_dependencies.rb:9
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE "checkouts"[0m
+  ↳ db/migrate/20250524190404_update_migration_dependencies.rb:10
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE "hold_requests"[0m
+  ↳ db/migrate/20250524190404_update_migration_dependencies.rb:11
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "bookmarks"[0m
+  ↳ db/migrate/20250524190404_update_migration_dependencies.rb:12
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE "special_books"[0m
+  ↳ db/migrate/20250524190404_update_migration_dependencies.rb:13
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20250524190404"]]
+  ↳ bin/rails:4
+  [1m[35m (33.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddForeignKeyConstraints (20250524190533)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "books" ADD CONSTRAINT "fk_rails_9bb3dacd9b"
+FOREIGN KEY ("library_id")
+  REFERENCES "libraries" ("id")
+[0m
+  ↳ db/migrate/20250524190533_add_foreign_key_constraints.rb:4
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6857467164149377230)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+Started GET "/" for 127.0.0.1 at 2025-05-25 00:11:24 +0500
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.8.1) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.8.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.8.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.16) lib/rack/method_override.rb:24:in `call'
+rack (2.2.16) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.16) lib/rack/sendfile.rb:110:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.7.7) lib/rack/proxy.rb:87:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6857467164149377230)[0m
+  ↳ bin/rails:4
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to AddForeignKeyConstraints (20250524190533)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (2.1ms)[0m  [1m[35mALTER TABLE "books" ADD CONSTRAINT "fk_rails_9bb3dacd9b"
+FOREIGN KEY ("library_id")
+  REFERENCES "libraries" ("id")
+[0m
+  ↳ db/migrate/20250524190533_add_foreign_key_constraints.rb:4
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:4
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(6857467164149377230)[0m
+  ↳ bin/rails:4
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (1.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2025-05-24 19:14:25.741874"], ["updated_at", "2025-05-24 19:14:25.741874"]]
+  ↳ bin/rails:4
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (5470.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "library_management_system_development"[0m
+  ↳ bin/rails:4
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (5469.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "library_management_system_development"[0m
+  ↳ bin/rails:4
+Started GET "/" for 127.0.0.1 at 2025-05-25 00:15:34 +0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.8.1) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.8.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.8.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.8.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.8.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.8.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.16) lib/rack/method_override.rb:24:in `call'
+rack (2.2.16) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.8.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.8.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.16) lib/rack/sendfile.rb:110:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.7.7) lib/rack/proxy.rb:87:in `call'
+railties (5.2.8.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6857467164149377230)[0m
+  ↳ bin/rails:4
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to AddForeignKeyConstraints (20250524190533)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (21.7ms)[0m  [1m[35mCREATE TABLE "transactions" ("id" bigserial primary key, "start" timestamp, "end" timestamp, "student_id" bigint, "book_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_177a1f5201"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_9756edf5f0"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+)[0m
+  ↳ db/migrate/20250524190533_add_foreign_key_constraints.rb:4
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6857467164149377230)[0m
+  ↳ bin/rails:4
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby26-x64/bin/rake:23
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ C:/Ruby26-x64/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby26-x64/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ C:/Ruby26-x64/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby26-x64/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ C:/Ruby26-x64/bin/rake:23
+  [1m[35m (145.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "library_management_system_development"[0m
+  ↳ C:/Ruby26-x64/bin/rake:23
+  [1m[35m (155.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "library_management_system_test"[0m
+  ↳ C:/Ruby26-x64/bin/rake:23
+  [1m[35m (599.9ms)[0m  [1m[35mCREATE DATABASE "library_management_system_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (1070.8ms)[0m  [1m[35mCREATE DATABASE "library_management_system_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6857467164149377230)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateStudents (20190928001723)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "email" character varying, "name" character varying, "password" character varying, "education_level" character varying, "university" character varying, "max_book_allowed" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190928001723_create_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928001723"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateBooks (20190928002758)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "books" ("id" bigserial primary key, "isbn" character varying, "title" character varying, "author" character varying, "language" text, "published" text, "edition" text, "image" text, "subject" text, "summary" text, "special" boolean, "library_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190928002758_create_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928002758"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateAdmins (20190928002857)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "admins" ("id" bigserial primary key, "name" character varying, "email" character varying, "password" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190928002857_create_admins.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928002857"]]
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateLibraries (20190928003221)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "libraries" ("id" bigserial primary key, "name" character varying, "university" character varying, "location" character varying, "borrow_limit" integer, "overdue_fines" float, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190928003221_create_libraries.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928003221"]]
+  ↳ bin/rails:4
+  [1m[35m (10.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddCountToBooks (20190928053621)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "books" ADD "count" integer[0m
+  ↳ db/migrate/20190928053621_add_count_to_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928053621"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateLibrarians (20190928171134)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "librarians" ("id" bigserial primary key, "name" character varying, "email" character varying, "password" character varying, "library" character varying, "approved" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190928171134_create_librarians.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928171134"]]
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateTransactions (20190928214946)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "transactions" ("id" bigserial primary key, "start" timestamp, "end" timestamp, "student_id" bigint, "book_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190928214946_create_transactions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928214946"]]
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddDeviseToStudents (20190928234858)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "students" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  ↳ db/migrate/20190928234858_add_devise_to_students.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "students" ADD "reset_password_token" character varying[0m
+  ↳ db/migrate/20190928234858_add_devise_to_students.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "students" ADD "reset_password_sent_at" timestamp[0m
+  ↳ db/migrate/20190928234858_add_devise_to_students.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "students" ADD "remember_created_at" timestamp[0m
+  ↳ db/migrate/20190928234858_add_devise_to_students.rb:15
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_students_on_email" ON "students"  ("email")[0m
+  ↳ db/migrate/20190928234858_add_devise_to_students.rb:40
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_students_on_reset_password_token" ON "students"  ("reset_password_token")[0m
+  ↳ db/migrate/20190928234858_add_devise_to_students.rb:41
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928234858"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddDeviseToLibrarians (20190928234941)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "librarians" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  ↳ db/migrate/20190928234941_add_devise_to_librarians.rb:8
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "librarians" ADD "reset_password_token" character varying[0m
+  ↳ db/migrate/20190928234941_add_devise_to_librarians.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "librarians" ADD "reset_password_sent_at" timestamp[0m
+  ↳ db/migrate/20190928234941_add_devise_to_librarians.rb:12
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "librarians" ADD "remember_created_at" timestamp[0m
+  ↳ db/migrate/20190928234941_add_devise_to_librarians.rb:15
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_librarians_on_email" ON "librarians"  ("email")[0m
+  ↳ db/migrate/20190928234941_add_devise_to_librarians.rb:40
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_librarians_on_reset_password_token" ON "librarians"  ("reset_password_token")[0m
+  ↳ db/migrate/20190928234941_add_devise_to_librarians.rb:41
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928234941"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddDeviseToAdmins (20190928235010)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "admins" ADD "encrypted_password" character varying DEFAULT '' NOT NULL[0m
+  ↳ db/migrate/20190928235010_add_devise_to_admins.rb:8
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "admins" ADD "reset_password_token" character varying[0m
+  ↳ db/migrate/20190928235010_add_devise_to_admins.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "admins" ADD "reset_password_sent_at" timestamp[0m
+  ↳ db/migrate/20190928235010_add_devise_to_admins.rb:12
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "admins" ADD "remember_created_at" timestamp[0m
+  ↳ db/migrate/20190928235010_add_devise_to_admins.rb:15
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admins_on_email" ON "admins"  ("email")[0m
+  ↳ db/migrate/20190928235010_add_devise_to_admins.rb:40
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admins_on_reset_password_token" ON "admins"  ("reset_password_token")[0m
+  ↳ db/migrate/20190928235010_add_devise_to_admins.rb:41
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190928235010"]]
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateCheckouts (20191002080301)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "checkouts" ("id" bigserial primary key, "student_id" bigint, "book_id" bigint, "issue_date" date, "return_date" date, "validity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20191002080301_create_checkouts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191002080301"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateHoldRequests (20191002083315)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "hold_requests" ("id" bigserial primary key, "student_id" bigint, "book_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20191002083315_create_hold_requests.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191002083315"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateBookmarks (20191002094949)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "bookmarks" ("id" bigserial primary key, "student_id" bigint, "book_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20191002094949_create_bookmarks.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191002094949"]]
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddColumnsToStudent (20191006155122)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "students" ADD "google_token" character varying[0m
+  ↳ db/migrate/20191006155122_add_columns_to_student.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "students" ADD "google_refresh_token" character varying[0m
+  ↳ db/migrate/20191006155122_add_columns_to_student.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191006155122"]]
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to AddColumnToStudent (20191009061150)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "students" ADD "provider" character varying[0m
+  ↳ db/migrate/20191009061150_add_column_to_student.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "students" ADD "uid" character varying[0m
+  ↳ db/migrate/20191009061150_add_column_to_student.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191009061150"]]
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to CreateSpecialBooks (20191009093211)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "special_books" ("id" bigserial primary key, "student_id" bigint, "book_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20191009093211_create_special_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191009093211"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+Migrating to UpdateMigrationDependencies (20250524190404)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "libraries" ("id" bigserial primary key, "name" character varying, "university" character varying, "location" character varying, "max_days" integer, "overdue_fines" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20250524190404_update_migration_dependencies.rb:7
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6857467164149377230)[0m
+  ↳ bin/rails:4
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2025-05-24 19:20:01.713497"], ["updated_at", "2025-05-24 19:20:01.713497"]]
+  ↳ bin/rails:4
+  [1m[35m (31.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (2118.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "library_management_system_development"[0m
+  ↳ bin/rails:4
+  [1m[35m (126.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "library_management_system_test"[0m
+  ↳ bin/rails:4
+  [1m[35m (552.0ms)[0m  [1m[35mCREATE DATABASE "library_management_system_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (438.9ms)[0m  [1m[35mCREATE DATABASE "library_management_system_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (40.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6857467164149377230)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to SetupCompleteDatabase (20250524191801)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "libraries" ("id" bigserial primary key, "name" character varying, "university" character varying, "location" character varying, "max_days" integer, "overdue_fines" decimal, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:4
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "email" character varying, "name" character varying, "password" character varying, "education_level" character varying, "university" character varying, "max_book_allowed" integer, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "provider" character varying, "uid" character varying, "google_token" character varying, "google_refresh_token" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:14
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_students_on_email" ON "students"  ("email")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:34
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_students_on_reset_password_token" ON "students"  ("reset_password_token")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:35
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "librarians" ("id" bigserial primary key, "email" character varying, "name" character varying, "library" character varying, "university" character varying, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:38
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_librarians_on_email" ON "librarians"  ("email")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:52
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_librarians_on_reset_password_token" ON "librarians"  ("reset_password_token")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:53
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "admins" ("id" bigserial primary key, "email" character varying, "name" character varying, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:56
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admins_on_email" ON "admins"  ("email")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:68
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_admins_on_reset_password_token" ON "admins"  ("reset_password_token")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:69
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "books" ("id" bigserial primary key, "isbn" character varying, "title" character varying, "author" character varying, "language" text, "published" text, "edition" text, "image" text, "subject" text, "summary" text, "special" boolean, "count" integer, "library_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_9bb3dacd9b"
+FOREIGN KEY ("library_id")
+  REFERENCES "libraries" ("id")
+)[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:72
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_books_on_library_id" ON "books"  ("library_id")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:72
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "transactions" ("id" bigserial primary key, "start" timestamp, "end" timestamp, "student_id" bigint, "book_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_177a1f5201"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_9756edf5f0"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+)[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:90
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_transactions_on_student_id" ON "transactions"  ("student_id")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:90
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_transactions_on_book_id" ON "transactions"  ("book_id")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:90
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "checkouts" ("id" bigserial primary key, "student_id" bigint, "book_id" bigint, "issue_date" date, "return_date" date, "validity" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_8acb4db864"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_ff12cce9d0"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+)[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:100
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_checkouts_on_student_id" ON "checkouts"  ("student_id")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:100
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_checkouts_on_book_id" ON "checkouts"  ("book_id")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:100
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "hold_requests" ("id" bigserial primary key, "student_id" bigint, "book_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_06c0bad730"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_6f5605972d"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+)[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:111
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_hold_requests_on_student_id" ON "hold_requests"  ("student_id")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:111
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_hold_requests_on_book_id" ON "hold_requests"  ("book_id")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:111
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "bookmarks" ("id" bigserial primary key, "student_id" bigint, "book_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_f5c21bfb00"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_ecb780aac3"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+)[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:119
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_bookmarks_on_student_id" ON "bookmarks"  ("student_id")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:119
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_bookmarks_on_book_id" ON "bookmarks"  ("book_id")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:119
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "special_books" ("id" bigserial primary key, "student_id" bigint, "book_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_465e423909"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_140dcfe1da"
+FOREIGN KEY ("book_id")
+  REFERENCES "books" ("id")
+)[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:127
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_special_books_on_student_id" ON "special_books"  ("student_id")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:127
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_special_books_on_book_id" ON "special_books"  ("book_id")[0m
+  ↳ db/migrate/20250524191801_setup_complete_database.rb:127
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20250524191801"]]
+  ↳ bin/rails:4
+  [1m[35m (43.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2025-05-24 19:20:45.701956"], ["updated_at", "2025-05-24 19:20:45.701956"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6857467164149377230)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4

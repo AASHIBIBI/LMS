@@ -1,18 +1,20 @@
-class CreateBooks < ActiveRecord::Migration[6.0]
+class CreateBooks < ActiveRecord::Migration[5.2]
   def change
     create_table :books do |t|
       t.string :isbn
       t.string :title
-      t.string :authors
-      t.string :language
-      t.string :published
-      t.string :edition
-      t.string :cover
-      t.string :subject
+      t.string :author
+      t.text :language
+      t.text :published
+      t.text :edition
+      t.text :image
+      t.text :subject
       t.text :summary
-      t.string :category
-      t.boolean :special_collection
-      t.references :library, null: false, foreign_key: true
+      t.boolean :special
+      t.bigint :library_id, null: true
+      # Removing foreign key constraint for now
+      # Will add it back in a separate migration after all tables are created
+      # t.references :library, foreign_key: true
 
       t.timestamps
     end
