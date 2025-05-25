@@ -7,22 +7,63 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <style>
+      .demo-banner {
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 10px 15px;
+        text-align: center;
+        font-weight: bold;
+        border-bottom: 1px solid #f5c6cb;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      
+      .navigation {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-radius: 4px;
+      }
+      
+      .navigation a {
+        margin-right: 10px;
+        text-decoration: none;
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 3px;
+      }
+      
+      .navigation a:hover {
+        background-color: #0056b3;
+      }
+    </style>
   </head>
 
   <body>
-    <% if student_signed_in?%>
-    <%= link_to "Logout", destroy_student_session_path, method: :delete%>
-    <%= link_to 'Back', students_path %>
-    <%end%>
-    <% if librarian_signed_in?%>
-    <%= link_to "Logout", destroy_librarian_session_path, method: :delete%>
-    <%= link_to 'Back', librarians_path %>
-    <%end%>
-        <% if admin_signed_in?%>
-    <%= link_to "Logout", destroy_librarian_session_path, method: :delete%>
-    <%= link_to 'Back', admins_path %>
-    <%end%>
-
+    <div class="demo-banner">
+      This application is running in database-free mode for demonstration purposes. 
+      All changes are simulated and will not persist after restart.
+      Login with: student@example.com / password, librarian@example.com / password, or admin@example.com / password
+    </div>
+    
+    <div class="navigation">
+      <% if student_signed_in?%>
+        <%= link_to "Logout", destroy_student_session_path, method: :delete%>
+        <%= link_to 'Back', students_path %>
+      <%end%>
+      <% if librarian_signed_in?%>
+        <%= link_to "Logout", destroy_librarian_session_path, method: :delete%>
+        <%= link_to 'Back', librarians_path %>
+      <%end%>
+      <% if admin_signed_in?%>
+        <%= link_to "Logout", destroy_librarian_session_path, method: :delete%>
+        <%= link_to 'Back', admins_path %>
+      <%end%>
+    </div>
 
     <%= yield %>
   </body>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    p {
+      margin-bottom: 15px;
+    }
+    .note {
+      background-color: #f8f9fa;
+      padding: 10px;
+      border-left: 4px solid #6c757d;
+      margin-bottom: 20px;
+    }
+    .loading {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 18px;
+      color: #6c757d;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #3498db;
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Library Management System</h1>
+    
+    <div class="note">
+      <p>This application is running in database-free mode for demonstration purposes.</p>
+      <p>If you're seeing this page, the application is still starting up or the Rails server might be experiencing issues.</p>
+    </div>
+    
+    <div class="loading">
+      <p>Loading application...</p>
+      <p>This may take a few moments</p>
+    </div>
+    
+    <p>You can try accessing the application at: <a href="/" class="btn">Go to Homepage</a></p>
+    
+    <p>Alternatively, if you continue to see this page, you may need to restart the Rails server.</p>
+  </div>
+  
+  <script>
+    // Redirect to home page after 5 seconds
+    setTimeout(function() {
+      window.location.href = "/";
+    }, 5000);
+  </script>
+</body>
+</html> 

@@ -1,25 +1,39 @@
 # frozen_string_literal: true
 
-class Students::SessionsController < Devise::SessionsController
-  before_action :configure_sign_in_params, only: [:create]
-
-  # GET /resource/sign_in
-  # def new
-  #   super
-  # end
-
-  # POST /resource/sign_in
-  # def create
-  #   super
-  # end
-
-  # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
-  def after_sign_in_path_for(resource)
-    '/students'
+class Students::SessionsController < ApplicationController
+  # Skip CSRF verification for the demo
+  skip_before_action :verify_authenticity_token
+  
+  def new
+    # Login form
   end
+  
+  def create
+    # Find student by email
+    @student = Student.find_by(email: params[:student][:email])
+    
+    # Check if student exists and password matches
+    if @student && @student.valid_password?(params[:student][:password])
+      # Set session
+      session[:student_id] = @student.id
+      
+      # Redirect to student dashboard
+      redirect_to root_path, notice: "Logged in successfully as student."
+    else
+      # Show error
+      flash.now[:alert] = "Invalid email or password."
+      render :new
+    end
+  end
+  
+  def destroy
+    # Clear session
+    session[:student_id] = nil
+    
+    # Redirect to home page
+    redirect_to root_path, notice: "Logged out successfully."
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.

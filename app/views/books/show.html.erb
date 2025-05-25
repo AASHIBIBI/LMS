@@ -1,89 +1,68 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Cover:</strong>
-  <%= image_tag @book.cover.url.to_s if @book.cover?%>
-</p>
-
-<p>
-  <strong>Isbn:</strong>
-  <%= @book.isbn %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
-
-<p>
-  <strong>Authors:</strong>
-  <%= @book.authors %>
-</p>
-
-<p>
-  <strong>Language:</strong>
-  <%= @book.language %>
-</p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @book.published %>
-</p>
-
-<p>
-  <strong>Edition:</strong>
-  <%= @book.edition %>
-</p>
-
-<p>
-  <strong>Subject:</strong>
-  <%= @book.subject %>
-</p>
-
-<p>
-  <strong>Summary:</strong>
-  <%= @book.summary %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @book.category %>
-</p>
-
-<p>
-  <strong>Special collection:</strong>
-  <%= if @book.special_collection == true
-    'Yes'
-    else
-      'No'
-    end
-     %>
-</p>
-
-<p>
-  <strong>Library:</strong>
-  <%= Library.find(@book.library_id ).name %>
-</p>
-
-<p>
-  <strong>Available Count:</strong>
-  <%= @book.count %>
-</p>
-
-
-
-
-<% if current_admin.nil? and current_librarian.nil? and current_student.nil? %>          
-	<%= link_to 'Back', books_path %>
-<% end %>
-<% if !current_admin.nil? %>
-	<td><%= link_to 'Edit', edit_book_path %></td>
-	<%= link_to 'Back', show_books_path %>
-<% end %>
-<% if !current_librarian.nil? %>
-	<td><%= link_to 'Edit', edit_book_path %></td>
-	<%= link_to 'Back', librarian_book_view_path %>
-<% end %>
-<% if !current_student.nil? %>
-	<%= link_to 'Back', books_students_path %>
-<% end %>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h1><%= @book.title %></h1>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <h5>Book Information</h5>
+              <hr>
+              <p><strong>ISBN:</strong> <%= @book.isbn %></p>
+              <p><strong>Author:</strong> <%= @book.author %></p>
+              <p><strong>Language:</strong> <%= @book.language %></p>
+              <p><strong>Published:</strong> <%= @book.published %></p>
+              <p><strong>Edition:</strong> <%= @book.edition %></p>
+              <p><strong>Subject:</strong> <%= @book.subject %></p>
+              <p><strong>Special Collection:</strong> <%= @book.special ? 'Yes' : 'No' %></p>
+              <p><strong>Availability:</strong> <%= @book.count > 0 ? 'Available' : 'Unavailable' %></p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-8">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5>Summary</h5>
+              <hr>
+              <p><%= @book.summary %></p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-body">
+              <h5>Library Information</h5>
+              <hr>
+              <p><strong>Library:</strong> <%= @book.library.name %></p>
+              <p><strong>Location:</strong> <%= @book.library.location %></p>
+              <p><strong>University:</strong> <%= @book.library.university %></p>
+              <p><strong>Maximum Borrowing Days:</strong> <%= @book.library.max_days %></p>
+              <p><strong>Overdue Fine (per day):</strong> $<%= sprintf('%.2f', @book.library.overdue_fines) %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-4">
+        <div class="col">
+          <div class="alert alert-info">
+            <strong>Note:</strong> This is a demo application running without a database. Book checkout functionality is disabled.
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-3">
+        <div class="col">
+          <div class="btn-group">
+            <%= link_to 'Back to Books', books_path, class: 'btn btn-secondary' %>
+            <a href="#" class="btn btn-primary disabled">Checkout (Demo Only)</a>
+            <a href="#" class="btn btn-success disabled">Hold Request (Demo Only)</a>
+            <a href="#" class="btn btn-info disabled">Bookmark (Demo Only)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

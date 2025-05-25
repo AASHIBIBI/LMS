@@ -1,15 +1,20 @@
 class LibrariesController < ApplicationController
-  before_action :set_library, only: [:show, :edit, :update, :destroy]
-
+  # Only enable basic browsing functions for frontend-only app
+  
   # GET /libraries
-  # GET /libraries.json
   def index
     @libraries = Library.all
   end
-
+  
   # GET /libraries/1
-  # GET /libraries/1.json
   def show
+    @library = Library.find(params[:id])
+    
+    # Get books for this library
+    @books = Book.all.select { |book| book.library_id == @library.id }
+  rescue => e
+    flash[:alert] = "Error: This action requires database access which is disabled in this demo."
+    redirect_to libraries_path
   end
 
   # GET /libraries/new

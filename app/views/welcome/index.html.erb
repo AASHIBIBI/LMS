@@ -1,37 +1,75 @@
-<div class="container text-center mt-5">
-  <h1>Welcome to the Library Management System</h1>
-  <p class="lead mt-4">This is a simple library management system built with Ruby on Rails.</p>
-  
-  <div class="row mt-5">
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Books</h5>
-          <p class="card-text">Manage the library's book collection, including adding new books, updating information, and tracking availability.</p>
-        </div>
-      </div>
-    </div>
+<div class="container">
+  <div class="jumbotron mt-4">
+    <h1 class="display-4">Welcome to the Library Management System</h1>
+    <p class="lead">A database-free demo version for testing purposes</p>
+    <hr class="my-4">
+    <p>This application demonstrates a Library Management System running without a database dependency.</p>
     
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Members</h5>
-          <p class="card-text">Manage library members, including registration, membership details, and borrowing history.</p>
+    <div class="card mb-4">
+      <div class="card-header bg-info text-white">
+        <h5 class="mb-0">Demo Credentials</h5>
+      </div>
+      <div class="card-body">
+        <p>You can log in with the following credentials:</p>
+        <ul>
+          <li><strong>Student:</strong> student@example.com / password</li>
+          <li><strong>Librarian:</strong> librarian@example.com / password</li>
+          <li><strong>Admin:</strong> admin@example.com / password</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Student Portal</h5>
+          </div>
+          <div class="card-body">
+            <p>Access the student portal to:</p>
+            <ul>
+              <li>Browse available books</li>
+              <li>Check out books</li>
+              <li>Manage your account</li>
+            </ul>
+            <a href="/students/sign_in" class="btn btn-primary">Student Login</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-header bg-success text-white">
+            <h5 class="mb-0">Librarian Portal</h5>
+          </div>
+          <div class="card-body">
+            <p>Access the librarian portal to:</p>
+            <ul>
+              <li>Manage book inventory</li>
+              <li>Process checkouts and returns</li>
+              <li>Manage holds and reservations</li>
+            </ul>
+            <a href="/librarians/sign_in" class="btn btn-success">Librarian Login</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-header bg-danger text-white">
+            <h5 class="mb-0">Admin Portal</h5>
+          </div>
+          <div class="card-body">
+            <p>Access the admin portal to:</p>
+            <ul>
+              <li>Manage libraries</li>
+              <li>Configure system settings</li>
+              <li>Manage users and permissions</li>
+            </ul>
+            <a href="/admins/sign_in" class="btn btn-danger">Admin Login</a>
+          </div>
         </div>
       </div>
     </div>
-    
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Loans</h5>
-          <p class="card-text">Track book loans, returns, and manage overdue items efficiently.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="mt-5">
-    <p><strong>Note:</strong> Database operations are currently disabled. This is just a preview of the interface.</p>
   </div>
 </div>

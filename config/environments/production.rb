@@ -35,8 +35,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
-  # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  # Store uploaded files on the local file system - REMOVED FOR FRONTEND-ONLY APP
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
@@ -86,8 +85,7 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
+  # Do not dump schema after migrations - REMOVED FOR FRONTEND-ONLY APP
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
@@ -109,6 +107,7 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_options = {from: 'yourbookrequests@gmail.com'}
@@ -122,7 +121,4 @@ Rails.application.configure do
       password:             'Abcd@1234',
       authentication:       'plain',
       enable_starttls_auto: true  }
-
-
-
 end

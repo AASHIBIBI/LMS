@@ -1,18 +1,65 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-  devise_for :admins , controllers: { sessions: 'admins/sessions' , registrations: 'admins/registrations'}
-  devise_for :librarians, controllers: { sessions: 'librarians/sessions' , registrations: 'librarians/registrations'}
-  devise_for :students, controllers: { sessions: 'students/sessions' , registrations: 'students/registrations'}
-  resources :transactions
-  resources :librarians
-  resources :libraries
-  resources :admins
-  resources :books
-  resources :students
-  resources :home_pages
-
-  # Set the welcome page as the root of the application
+  # Root path
   root 'welcome#index'
+  
+  # Student authentication routes
+  get 'students/sign_in', to: 'students/sessions#new', as: 'new_student_session'
+  post 'students/sign_in', to: 'students/sessions#create', as: 'student_session'
+  delete 'students/sign_out', to: 'students/sessions#destroy', as: 'destroy_student_session'
+  
+  # Librarian authentication routes
+  get 'librarians/sign_in', to: 'librarians/sessions#new', as: 'new_librarian_session'
+  post 'librarians/sign_in', to: 'librarians/sessions#create', as: 'librarian_session'
+  delete 'librarians/sign_out', to: 'librarians/sessions#destroy', as: 'destroy_librarian_session'
+  
+  # Admin authentication routes
+  get 'admins/sign_in', to: 'admins/sessions#new', as: 'new_admin_session'
+  post 'admins/sign_in', to: 'admins/sessions#create', as: 'admin_session'
+  delete 'admins/sign_out', to: 'admins/sessions#destroy', as: 'destroy_admin_session'
+  
+  # Student routes
+  resources :students, only: [:index, :show] do
+    collection do
+      get 'dashboard'
+    end
+  end
+  
+  # Librarian routes
+  resources :librarians, only: [:index, :show] do
+    collection do
+      get 'dashboard'
+    end
+  end
+  
+  # Admin routes
+  resources :admins, only: [:index, :show] do
+    collection do
+      get 'dashboard'
+    end
+  end
+  
+  # Book routes
+  resources :books, only: [:index, :show]
+  
+  # Library routes
+  resources :libraries, only: [:index, :show]
+  
+  # Error pages
+  get '/404', to: 'errors#not_found'
+  get '/500', to: 'errors#internal_server_error'
+  
+  # Catch all routes to 404
+  match '*path', to: 'errors#not_found', via: :all
+
+  get 'welcome/index'
+  
+  # Comment out devise_for routes - they're causing issues in database-free mode
+  # devise_for :admins , controllers: { sessions: 'admins/sessions' , registrations: 'admins/registrations'}
+  # devise_for :librarians, controllers: { sessions: 'librarians/sessions' , registrations: 'librarians/registrations'}
+  # devise_for :students, controllers: { sessions: 'students/sessions' , registrations: 'students/registrations'}
+  
+  resources :transactions
+  resources :home_pages
 
   get '/search' => 'books#search', :as => 'search'
   get '/checkout' => 'books#checkout', :as => 'checkout'
@@ -44,5 +91,4 @@ Rails.application.routes.draw do
   get '/librarian_special_book' => 'books#librarian_special_book', :as => 'librarian_special_book'
   get '/reject_special_book' => 'books#reject_special_book', :as => 'reject_special_book'
   get '/approve_special_book' => 'books#approve_special_book', :as => 'approve_special_book'
-  
 end
